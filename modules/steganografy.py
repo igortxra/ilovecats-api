@@ -1,6 +1,5 @@
-from config import IMAGES_DIR, STEGO_DIR
+from config import STEGO_DIR
 from .bytes import binary_repr_to_int, int_list_to_bytes, bytes_to_binary_repr
-from .helpers import generate_filename
 import modules.images as img
 
 
