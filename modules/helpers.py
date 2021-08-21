@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+import random
 
 
 def to_json(response: dict):
@@ -8,7 +8,8 @@ def to_json(response: dict):
 
 
 def generate_filename(prefix):
-    return f"{prefix}_{datetime.now().strftime('%d-%m-%Y_%H-%m-%S')}.bmp"
+    code = ''.join(random.choice('cat123456789') for _ in range(3))
+    return f"{prefix}_{code}.bmp"
 
 
 def json_message(msg, title='info'):
