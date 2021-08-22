@@ -7,6 +7,13 @@ Com a API é possível **escrever e recuperar as mensagens escondidas na imagem.
 - Substitua as \<tags\> pelo valor correto. 
 - A API suporta somente imagem no formato bitmap (.bmp)
 
+## Como iniciar a API
+- Rode o arquivo app.py com o python
+```bash
+python app.py
+```
+- Faça as requisições HTTP
+
 ## API Methods
 
 ### POST /upload
