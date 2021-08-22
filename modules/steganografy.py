@@ -18,7 +18,7 @@ def message_on_lsb_bits(bin_bytes, msg, start):
         bin_bytes[start + i] = bin_bytes[start + i][:-1] + msg[i]
 
 
-def apply_steganografy(image_bytes, image_name, msg: str) -> tuple:
+def apply_steganografy(image_bytes, image_name, msg):
     ''' Process image info and apply steganografy '''
 
     # Validating image and message

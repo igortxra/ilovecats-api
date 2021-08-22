@@ -5,7 +5,7 @@ import modules.images as img
 import server
 
 
-def upload_image(image_bytes: bytes) -> str:
+def upload_image(image_bytes: bytes):
     """ Write image bytes on a file """
 
     if not img.is_bitmap(image_bytes):
@@ -17,7 +17,7 @@ def upload_image(image_bytes: bytes) -> str:
     return 200, json_message(filename, 'filename')
 
 
-def get_image(image_name: str):
+def get_image(image_name):
     ''' Search image by name and returns image bytes if found '''
 
     image_bytes = img.get([IMAGES_DIR, STEGO_DIR], image_name)
@@ -52,7 +52,7 @@ def write_message_on_image(adict):
     return 200, json_message(message, 'filename')
 
 
-def decode_message_from_image(image_name: str):
+def decode_message_from_image(image_name):
     """ Return message hidden on the image. """
 
     image_bytes = img.get([STEGO_DIR], image_name)
