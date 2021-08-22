@@ -16,8 +16,7 @@ Com a API é possível **escrever e recuperar as mensagens escondidas na imagem.
 ### POST /upload
 #### Faz upload da imagem no servidor.
 ```bash
-curl -X POST http://localhost:8000/upload \
--F data=@cat.bmp
+curl -X POST http://localhost:8000/upload -F data=@cat.bmp
 ```
 <hr>
 
