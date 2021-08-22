@@ -35,7 +35,8 @@ curl -X GET http://localhost:8000/get-image?q=cat_123.bmp --output normal_cat.bm
 curl -X POST http://localhost:8000/write-message-on-image \
 -H 'Content-Type: application/json' \
 -d '{"image_name" : "cat_123.bmp", "message": "Amo gatos!"}'
-
+```
+ ```bash
 # Windows
 curl -X POST http://localhost:8000/write-message-on-image -H 'Content-Type: application/json' -d "{\"image_name\" : \"cat_616.bmp\", \"message\": \"Amo gatos!\"}"
 ```
