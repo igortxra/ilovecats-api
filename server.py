@@ -77,7 +77,12 @@ class DefaultHandler(BaseHTTPRequestHandler):
         elif self.path.endswith('/write-message-on-image'):
             self.data_string = self.rfile.read(
                 int(self.headers['Content-Length']))
-            pdict = json.loads(self.data_string.decode('utf-8'))
+            var = self.data_string.decode('utf-8')
+
+            try:
+                pdict = json.loads(self.data_string.decode('utf-8'))
+            except:
+                pdict = {}
 
             response = write_message_on_image(pdict)
 

@@ -39,7 +39,7 @@ curl -X GET http://localhost:8000/get-image?q=cat_2021.bmp --output normal_cat.b
 ```bash
 curl -X POST http://localhost:8000/write-message-on-image \
 -H 'Content-Type: application/json' \
--d '{"image_name" : "<image-name>", "message": "<message>"}'
+-d '{"image_name" : "cat_616.bmp", "message": "Amo vc"}'
 ```
 Exemplo
 ```bash
