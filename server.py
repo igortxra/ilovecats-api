@@ -1,15 +1,17 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse
+from app import *
+
 import cgi
 import json
 
-from app import decode_message_from_image, get_image, upload_image, write_message_on_image
-
 
 class DefaultHandler(BaseHTTPRequestHandler):
+    ''' Basic Handler for HTTP requests'''
 
     def get_query_string_parameter(self, qs, param_name):
-        ''' Query String Treatment '''
+        ''' Get a parameter from a query string '''
+
         if qs:
             alist = qs.split('&')
             qsdict = {}
@@ -21,12 +23,15 @@ class DefaultHandler(BaseHTTPRequestHandler):
         return ''
 
     def setheaders(self, status=200, headers={'content-type': 'application/json'}):
+        ''' Set status code and headers '''
+
         self.send_response(status)
         for key, value in headers.items():
             self.send_header(key, value)
         self.end_headers()
 
     def do_GET(self):
+        ''' Handle GET requests '''
 
         parsed_url = urlparse(self.path)
 
@@ -58,6 +63,7 @@ class DefaultHandler(BaseHTTPRequestHandler):
             self.send_error(404, 'Not Found')
 
     def do_POST(self):
+        ''' Handle POST requests '''
 
         # POST /upload
         if self.path.endswith('/upload'):
@@ -96,6 +102,7 @@ class DefaultHandler(BaseHTTPRequestHandler):
 
 def run(server_class=HTTPServer, handler_class=BaseHTTPRequestHandler):
     ''' Run HTTP Server with the specified handler '''
+
     print("[RUNNING] Server listening...")
     server_address = ('', 8000)
     httpd = server_class(server_address, handler_class)

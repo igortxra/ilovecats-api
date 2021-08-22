@@ -1,4 +1,6 @@
 def sum_bytes(bytes):
+    """ Sum 4 bytes """
+
     bytes_sum = sum(
         [
             int(bytes[0]),
@@ -11,7 +13,8 @@ def sum_bytes(bytes):
 
 
 def bytes_to_binary_repr(bytes_):
-    ''' Transforma bytes para pra repr. binária '''
+    ''' Transform bytes to binary representation '''
+
     bin_bytes = []
     for byte_ in bytes_:
         int_ = int(byte_)
@@ -20,7 +23,8 @@ def bytes_to_binary_repr(bytes_):
 
 
 def binary_repr_to_int(bin_bytes):
-    '''Transforma repr. binária pra ints'''
+    ''' Transform binary representations to int '''
+
     int_bytes = []
     for bin_ in bin_bytes:
         int_bytes .append(int(bin_, 2))
@@ -28,6 +32,7 @@ def binary_repr_to_int(bin_bytes):
 
 
 def int_list_to_bytes(int_bytes):
-    ''' Transforma ints pra bytes '''
+    ''' Transform ints to bytes '''
+
     bytes_ = bytes(int_bytes)
     return bytes_

@@ -6,10 +6,7 @@ import server
 
 
 def upload_image(image_bytes: bytes) -> str:
-    """ Write image bytes on a file
-
-    Returns a json string
-    """
+    """ Write image bytes on a file """
 
     if not img.is_bitmap(image_bytes):
         return 400, json_message('Invalid image format. Upload a .bmp file')
@@ -21,10 +18,8 @@ def upload_image(image_bytes: bytes) -> str:
 
 
 def get_image(image_name: str):
-    ''' Search image by name
+    ''' Search image by name and returns image bytes if found '''
 
-    Returns image bytes if found and json string if not
-    '''
     image_bytes = img.get([IMAGES_DIR, STEGO_DIR], image_name)
     if image_bytes:
         return 200, image_bytes
@@ -33,11 +28,7 @@ def get_image(image_name: str):
 
 
 def write_message_on_image(adict):
-    """ Writes a given message inner a image with steganografy
-
-    Expects a dict with 'image_name' and 'message' keys 
-
-    Returns ... """
+    """ Writes given message inner a image with steganografy """
 
     if 'image_name' not in adict \
             or 'message' not in adict:
@@ -45,7 +36,6 @@ def write_message_on_image(adict):
 
     image_name = adict['image_name']
 
-    # Getting image to aply message.
     image_bytes = img.get([IMAGES_DIR], image_name)
     if not image_bytes:
         return 404, json_message('Image specified not found')
@@ -62,7 +52,9 @@ def write_message_on_image(adict):
     return 200, json_message(message, 'filename')
 
 
-def decode_message_from_image(image_name):
+def decode_message_from_image(image_name: str):
+    """ Return message hidden on the image. """
+
     image_bytes = img.get([STEGO_DIR], image_name)
     if image_bytes:
         message = decode_steganografy(image_bytes)
